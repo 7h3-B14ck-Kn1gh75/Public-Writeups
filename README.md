@@ -10,13 +10,13 @@ NOTE: This is only a list of retired HTB/THM machines/rooms that allow writeups.
 
 ## Upcoming Writeups 
 
-- [] Spectra
-- [] Doctor
-- [] Ready
-- [] Tenet
-- [] Bucket
-- [] Ophiuchi
-- [] Forest
-- [] Atom
+- [ ] Spectra
+- [ ] Doctor
+- [ ] Ready
+- [ ] Tenet
+- [ ] Bucket
+- [ ] Ophiuchi
+- [ ] Forest
+- [ ] Atom
 
 
