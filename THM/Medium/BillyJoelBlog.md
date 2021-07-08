@@ -60,8 +60,6 @@ After logging in, we can see there's not a great deal here. Let's take a step ba
 We can google the version and see associated exploits.
 ![image](https://user-images.githubusercontent.com/65077960/124905832-5531e880-dfde-11eb-8b30-d18f78c06c81.png)
 Looking at exploitDB, we can see there's a shell upload vuln that we can use (now that we have credentials). Let's try it.
-
-![image](https://user-images.githubusercontent.com/65077960/124906649-3122d700-dfdf-11eb-9cfb-2af2cd638b6f.png)
 It worked, time to look for the user flag.
 
 
