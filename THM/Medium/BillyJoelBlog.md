@@ -41,3 +41,19 @@ Since this is a wordpress box, we'll use a tool like uniscan to automate directo
 | [+] CODE: 200 URL: http://blog.thm/search/sqlqhit.asp
 ===================================================================================================
 ```
+Looking at the blog, we see there's an author called Karen Wheeler.
+![image](https://user-images.githubusercontent.com/65077960/124903055-793ffa80-dfdb-11eb-9fed-3f1ea59192a4.png)
+
+Looking at the URL of her author page, we can see the username kwheel, we'll take a note of that as we may be able ot use that in futurue.
+Following the syntax of her username, we can infer that Billy Joel's username is probably bjoel, let's try it.
+![image](https://user-images.githubusercontent.com/65077960/124903691-1f8c0000-dfdc-11eb-9eaa-a8b369d632df.png)
+
+So we have two usernames that we can potentially use. Let's try bruteforce kwheels' password.
+
+```
+hydra -l kwheel -P rockyou.txt blog.thm http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log+In&redirect_to=http%3A%2F%2Fblog.thm%2Fwp-admin%2F&testcookie=1:F=The password you entered for the username" -V
+```
+We have to specify the criteria of a failed attempt since Wordpress doesn't give us a HTTP code such as 403, it always returns 200.
+
+![image](https://user-images.githubusercontent.com/65077960/124904699-2ebf7d80-dfdd-11eb-9533-6e1a755339d9.png)
+
