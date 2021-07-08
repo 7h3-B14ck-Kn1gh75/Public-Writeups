@@ -1,7 +1,9 @@
 # Public Writeups
+NOTE: This is only a list of retired HTB machines/Machines that allow writeups.  
 
-| THM        	| HTB 	| VulnHub 	| Other 	|
-|------------	|-----	|---------	|-------	|
-| Billy Joel 	|     	|         	|       	|
-|            	|     	|         	|       	|
-|            	|     	|         	|       	|
+## TryHackMe:  
+* Billy Joel's Blog  
+
+## Hack The Box  
+* Active  
+
