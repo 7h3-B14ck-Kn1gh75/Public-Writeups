@@ -49,7 +49,7 @@ Following the syntax of her username, we can infer that Billy Joel's username is
 ![image](https://user-images.githubusercontent.com/65077960/124903691-1f8c0000-dfdc-11eb-9eaa-a8b369d632df.png)
 
 So we have two usernames that we can potentially use. Let's try bruteforce kwheels' password.
-### User & root own 
+## User & root own 
 ```
 hydra -l kwheel -P rockyou.txt blog.thm http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log+In&redirect_to=http%3A%2F%2Fblog.thm%2Fwp-admin%2F&testcookie=1:F=The password you entered for the username" -V
 ```
@@ -76,4 +76,9 @@ We can see it's looking for an environment variable called admin, let's try sett
 ![image](https://user-images.githubusercontent.com/65077960/124907735-6a0f7b80-dfe0-11eb-8494-b6f3c6a85b5f.png)
 This allows us to escelate our privelleges to root and navigate the machine freely.
 
-
+Root's flag is in /root/ (as usual)
+User's flag, we still have to search for. We can do this manually or we can use a command like "find" to make things easier.
+```
+find / 2>/dev/null | grep user.txt
+```
+We're given the file path of the user flag, which we can submit to TryHackMe.
