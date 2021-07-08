@@ -49,7 +49,7 @@ Following the syntax of her username, we can infer that Billy Joel's username is
 ![image](https://user-images.githubusercontent.com/65077960/124903691-1f8c0000-dfdc-11eb-9eaa-a8b369d632df.png)
 
 So we have two usernames that we can potentially use. Let's try bruteforce kwheels' password.
-
+### User & root own 
 ```
 hydra -l kwheel -P rockyou.txt blog.thm http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log+In&redirect_to=http%3A%2F%2Fblog.thm%2Fwp-admin%2F&testcookie=1:F=The password you entered for the username" -V
 ```
@@ -60,7 +60,20 @@ After logging in, we can see there's not a great deal here. Let's take a step ba
 We can google the version and see associated exploits.
 ![image](https://user-images.githubusercontent.com/65077960/124905832-5531e880-dfde-11eb-8b30-d18f78c06c81.png)
 Looking at exploitDB, we can see there's a shell upload vuln that we can use (now that we have credentials). Let's try it.
-It worked, time to look for the user flag.
+![image](https://user-images.githubusercontent.com/65077960/124906774-57e10d80-dfdf-11eb-8623-ee049ded9864.png)
 
+Immediately we see a wp-config file, that we can use to grab a password out of. We don't need this but it's good to take note of.
+Since we know the user flag isn't going to be in a home directory, let's try escalate our priveleges and then look around:
+```
+find / -perm -u=s -type f 2>/dev/null
+```
+We see a strange binary called "checker", we'll investigate it:
+![image](https://user-images.githubusercontent.com/65077960/124907519-2caaee00-dfe0-11eb-84a7-c4d1f512b572.png)
+
+Using a command like ltrace, we can watch what it does.
+![image](https://user-images.githubusercontent.com/65077960/124907630-4ea47080-dfe0-11eb-872f-f3c93cd09b49.png)
+We can see it's looking for an environment variable called admin, let's try setting it and rerun it.
+![image](https://user-images.githubusercontent.com/65077960/124907735-6a0f7b80-dfe0-11eb-8494-b6f3c6a85b5f.png)
+This allows us to escelate our privelleges to root and navigate the machine freely.
 
 
