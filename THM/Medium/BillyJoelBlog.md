@@ -65,15 +65,15 @@ Looking at exploitDB, we can see there's a shell upload vuln that we can use (no
 Immediately we see a wp-config file, that we can use to grab a password out of. We don't need this but it's good to take note of.
 Since we know the user flag isn't going to be in a home directory, let's try escalate our priveleges and then look around:
 ```
-find / -perm -u=s -type f 2>/dev/null
+find / -perm -u=s -type f 2>/dev/null  
 ```
-We see a strange binary called "checker", we'll investigate it:
-![image](https://user-images.githubusercontent.com/65077960/124907519-2caaee00-dfe0-11eb-84a7-c4d1f512b572.png)
+We see a strange binary called "checker", we'll investigate it:  
+![image](https://user-images.githubusercontent.com/65077960/124907519-2caaee00-dfe0-11eb-84a7-c4d1f512b572.png)  
 
 Using a command like ltrace, we can watch what it does.
-![image](https://user-images.githubusercontent.com/65077960/124907630-4ea47080-dfe0-11eb-872f-f3c93cd09b49.png)
+![image](https://user-images.githubusercontent.com/65077960/124907630-4ea47080-dfe0-11eb-872f-f3c93cd09b49.png)  
 We can see it's looking for an environment variable called admin, let's try setting it and rerun it.
-![image](https://user-images.githubusercontent.com/65077960/124907735-6a0f7b80-dfe0-11eb-8494-b6f3c6a85b5f.png)
+![image](https://user-images.githubusercontent.com/65077960/124907735-6a0f7b80-dfe0-11eb-8494-b6f3c6a85b5f.png)  
 This allows us to escelate our privelleges to root and navigate the machine freely.
 
 Root's flag is in /root/ (as usual)
