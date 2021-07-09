@@ -72,9 +72,11 @@ We see a strange binary called "checker", we'll investigate it:
 
 Using a command like ltrace, we can watch what it does.
 ![image](https://user-images.githubusercontent.com/65077960/124907630-4ea47080-dfe0-11eb-872f-f3c93cd09b49.png)  
-We can see it's looking for an environment variable called admin, let's try setting it and rerun it.
-![image](https://user-images.githubusercontent.com/65077960/124907735-6a0f7b80-dfe0-11eb-8494-b6f3c6a85b5f.png)  
+We can see it's looking for an environment variable called admin, let's try setting it and rerun it.  
+![image](https://user-images.githubusercontent.com/65077960/124907735-6a0f7b80-dfe0-11eb-8494-b6f3c6a85b5f.png)   
+
 This allows us to escelate our privelleges to root and navigate the machine freely.
+
 
 Root's flag is in /root/ (as usual)
 User's flag, we still have to search for. We can do this manually or we can use a command like "find" to make things easier.
